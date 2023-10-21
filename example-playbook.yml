@@ -1,0 +1,26 @@
+- hosts: Korovin
+  become: yes
+
+  tasks:
+    - name: Установка пакета cmatrix
+      apt:
+        name: cmatrix
+        state: present
+
+    - name: Установка пакета cowsay
+      apt:
+        name: cowsay
+        state: present
+
+    - name: Установка пакета sl
+      apt:
+        name: sl
+        state: present- hosts: example_device
+  become: yes
+  vars:
+    private_key_file: ~/.ssh/id_rsa
+  tasks:
+    - name: Installing apache2
+      apt:
+        name: apache2
+        state: installed
